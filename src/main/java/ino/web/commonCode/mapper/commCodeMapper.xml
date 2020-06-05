@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ino.web.commonCode.mapper">
+	
+	<select id="selectCommonCodeList" resultType="java.util.HashMap">
+		
+		SELECT * 
+		  FROM MASTER_TABLE
+		
+	</select>
+	
+	<select id="selectCommonCodeList2" resultType="hashMap">
+		 <![CDATA[
+		SELECT M.CODE,D.DCODE, D.DCODE_NAME FROM MASTER_TABLE M JOIN DETAIL_TABLE D 
+		ON M.CODE=D.CODE WHERE M.USE_YN='Y'AND D.USE_YN='Y'
+		]]>
+	</select>
+	
+</mapper>
